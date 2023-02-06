@@ -7,8 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiUnitTests", "tests\ApiUn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5CFA1438-CB45-4A4A-8D3F-567355D97A9A}"
 	ProjectSection(SolutionItems) = preProject
+		Help.txt = Help.txt
+		LB.txt = LB.txt
+		LB2.txt = LB2.txt
+		NewFileTest.txt = NewFileTest.txt
 		tests\sth.txt = tests\sth.txt
 		TextFile1.txt = TextFile1.txt
+		TextFile2.txt = TextFile2.txt
+		TextFile3.txt = TextFile3.txt
+		TextFile4.txt = TextFile4.txt
+		TextFile5.txt = TextFile5.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CDA93F5E-D25B-437E-9636-7C16AE65AF29}"
@@ -33,6 +41,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\Persistence\Persistence.csproj", "{4E948271-59AB-4CA1-BAB3-6E22EBDBD571}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{71F7E120-412B-41FA-8B93-2BBDFF1658C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{B96D51AB-49E5-4C46-B26C-B3A7A440265F}"
+	ProjectSection(SolutionItems) = preProject
+		UsersTable.txt = UsersTable.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
