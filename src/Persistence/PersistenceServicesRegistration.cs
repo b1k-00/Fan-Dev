@@ -17,8 +17,8 @@ public static class PersistenceServicesRegistration
     public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
         //Registers the DbContext with our DI container
-        services.AddDbContext<JuniorAssociateDbContext>(
-            options => options.UseSqlServer(configuration.GetConnectionString("JuniorAssociateDb"))
+        services.AddDbContext<TaskBuildsDBContext>(
+            options => options.UseSqlServer(configuration.GetConnectionString("TaskBuildsDb"))
         );
 
         //Registers the Generic Repository. Registering this way allows us to use the GenericRepository
