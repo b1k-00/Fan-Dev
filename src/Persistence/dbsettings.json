@@ -1,5 +1,5 @@
 ﻿{
   "ConnectionStrings": {
-    "JuniorAssociateDb": "Server=(localdb)\\mssqllocaldb; Integrated Security=true; Initial Catalog=JuniorAssociate; MultipleActiveResultSets=False; Connection Timeout=30;"
+    "JuniorAssociateDb": "Server=(localdb)\\mssqllocaldb; Integrated Security=true; Initial Catalog=Task_Builds; MultipleActiveResultSets=False; Connection Timeout=30;"
   }
 }

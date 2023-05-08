@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
 
-public class JuniorAssociateDbContext : DbContext
+public class TaskBuildsDBContext : DbContext
 {
 
-    public JuniorAssociateDbContext(DbContextOptions<JuniorAssociateDbContext> options) : base(options)
+    public TaskBuildsDBContext(DbContextOptions<TaskBuildsDBContext> options) : base(options)
     {
     }
 
@@ -17,12 +17,13 @@ public class JuniorAssociateDbContext : DbContext
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(JuniorAssociateDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaskBuildsDBContext).Assembly);
     }
 
     #region DbSets
 
-    public DbSet<DadJoke> DadJokes { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<UserTask> Tasks { get; set; }
 
     #endregion
 }
