@@ -1,9 +1,9 @@
-# JA .Net Template
+# Travin Thibodeaux Stat Tracker
 
 
 ## What is this?
 
-This is a mostly empty solution setup to act as a base for the .Net team in the JA program.
+This is a mostly empty solution setup to act as a base for the TT STAT TRACKER.
 
 Some things to note:
  - This project is designed with [Clean Architecture](https://www.c-sharpcorner.com/article/clean-architecture-with-net-62/).
@@ -13,7 +13,7 @@ Some things to note:
 
 ## Additional Considerations
 
-This is not a full fledged solution. Here is just a smattering of things to have the JAs think about and implement as part of their project work:
+This is not a full fledged solution. Here is just a smattering of things to think about and implement as part of my project work:
 - Adding functionality to seed data
 - Determine any external functionality for infratructure project
 - Add middleware for exception handling
