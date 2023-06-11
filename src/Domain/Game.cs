@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain;
-public class Games : BaseEntity
+public class Game : BaseEntity
 {
     public int GameId { get; set; }
 

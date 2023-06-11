@@ -5,9 +5,9 @@ namespace Persistence.Repositories;
 
 public class DadJokeRepository : GenericRepository<DadJoke>, IDadJokeRepository
 {
-    private readonly TaskBuildsDBContext _dbContext;
+    private readonly TT_StatsDBContext _dbContext;
 
-    public DadJokeRepository(TaskBuildsDBContext dbContext) : base(dbContext)
+    public DadJokeRepository(TT_StatsDBContext dbContext) : base(dbContext)
     {
         _dbContext = dbContext;
     }
