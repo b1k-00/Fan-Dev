@@ -1,14 +1,14 @@
 USE [TT_Stats]
 GO
 
-/****** Object:  Table [dbo].[TT_Games]    Script Date: 6/8/2023 10:15:53 PM ******/
+/****** Object:  Table [dbo].[TT_Game]    Script Date: 6/11/2023 2:51:18 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[TT_Games](
+CREATE TABLE [dbo].[TT_Game](
 	[GameId] [int] IDENTITY(1,1) NOT NULL,
 	[Date] [datetime] NOT NULL,
 	[Location] [varchar](50) NULL,
@@ -19,14 +19,14 @@ CREATE TABLE [dbo].[TT_Games](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[TT_Teams]    Script Date: 6/8/2023 10:15:45 PM ******/
+/****** Object:  Table [dbo].[TT_Team]    Script Date: 6/11/2023 2:52:19 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[TT_Teams](
+CREATE TABLE [dbo].[TT_Team](
 	[TeamId] [int] IDENTITY(1,1) NOT NULL,
 	[TeamName] [varchar](50) NOT NULL,
 	[TeamArena] [varchar](50) NULL,
@@ -38,7 +38,13 @@ CREATE TABLE [dbo].[TT_Teams](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[TT_Information]    Script Date: 6/8/2023 10:15:23 PM ******/
+
+
+
+USE [TT_Stats]
+GO
+
+/****** Object:  Table [dbo].[TT_Information]    Script Date: 6/11/2023 2:51:45 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -64,6 +70,43 @@ REFERENCES [dbo].[TT_Teams] ([TeamId])
 GO
 
 ALTER TABLE [dbo].[TT_Information] CHECK CONSTRAINT [FK_TT_Information_TT_Teams]
+GO
+
+/****** Object:  Table [dbo].[TT_BoxScore]    Script Date: 6/11/2023 2:49:03 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TT_BoxScore](
+	[StatsId] [int] NOT NULL,
+	[PlayerId] [int] NOT NULL,
+	[GameId] [int] NOT NULL,
+	[Points] [int] NOT NULL,
+	[ORebounds] [int] NOT NULL,
+	[DRebounds] [int] NOT NULL,
+	[Rebounds] [int] NOT NULL,
+	[Assists] [int] NOT NULL,
+	[Steals] [int] NOT NULL,
+	[Blocks] [int] NOT NULL,
+	[Minutes] [int] NOT NULL,
+	[+/-] [int] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[TT_BoxScore]  WITH CHECK ADD  CONSTRAINT [FK_TT_BoxScore_TT_Games] FOREIGN KEY([GameId])
+REFERENCES [dbo].[TT_Games] ([GameId])
+GO
+
+ALTER TABLE [dbo].[TT_BoxScore] CHECK CONSTRAINT [FK_TT_BoxScore_TT_Games]
+GO
+
+ALTER TABLE [dbo].[TT_BoxScore]  WITH CHECK ADD  CONSTRAINT [FK_TT_BoxScore_TT_Information] FOREIGN KEY([PlayerId])
+REFERENCES [dbo].[TT_Information] ([PlayerId])
+GO
+
+ALTER TABLE [dbo].[TT_BoxScore] CHECK CONSTRAINT [FK_TT_BoxScore_TT_Information]
 GO
 
 
