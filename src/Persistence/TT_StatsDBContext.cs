@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
 
-public class TaskBuildsDBContext : DbContext
+public class TT_StatsDBContext : DbContext
 {
 
-    public TaskBuildsDBContext(DbContextOptions<TaskBuildsDBContext> options) : base(options)
+    public TT_StatsDBContext(DbContextOptions<TT_StatsDBContext> options) : base(options)
     {
     }
 
@@ -17,13 +17,16 @@ public class TaskBuildsDBContext : DbContext
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaskBuildsDBContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(TT_StatsDBContext).Assembly);
     }
 
     #region DbSets
 
-    public DbSet<User> Users { get; set; }
-    public DbSet<UserTask> Tasks { get; set; }
+    public DbSet<Team> Teams { get; set; }
+    public DbSet<Game> Games { get; set; }
+
+    public DbSet<Information> Info { get; set; }
+
 
     #endregion
 }

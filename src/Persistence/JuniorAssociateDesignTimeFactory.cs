@@ -4,9 +4,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace Persistence;
 
-public class JuniorAssociateDesignTimeFactory : IDesignTimeDbContextFactory<TaskBuildsDBContext>
+public class JuniorAssociateDesignTimeFactory : IDesignTimeDbContextFactory<TT_StatsDBContext>
 {
-    public TaskBuildsDBContext CreateDbContext(string[] args)
+    public TT_StatsDBContext CreateDbContext(string[] args)
     {
         IConfigurationRoot configuration = new ConfigurationBuilder()
             .AddJsonFile(Directory.GetCurrentDirectory() + "/dbsettings.json")
@@ -14,9 +14,9 @@ public class JuniorAssociateDesignTimeFactory : IDesignTimeDbContextFactory<Task
 
         var connectionString = configuration.GetConnectionString("JuniorAssociateDb");
 
-        var builder = new DbContextOptionsBuilder<TaskBuildsDBContext>();
+        var builder = new DbContextOptionsBuilder<TT_StatsDBContext>();
         builder.UseSqlServer(connectionString);
 
-        return new TaskBuildsDBContext(builder.Options);
+        return new TT_StatsDBContext(builder.Options);
     }
 }
