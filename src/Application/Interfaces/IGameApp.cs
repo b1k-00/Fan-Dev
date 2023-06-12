@@ -18,5 +18,5 @@ public interface IGameApp
 
     Task<List<Game>> GetGamesByLocation();
 
-    Task<bool> IsGameToday();
+    bool IsGameToday();
 }

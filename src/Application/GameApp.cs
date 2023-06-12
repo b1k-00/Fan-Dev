@@ -42,8 +42,21 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         throw new NotImplementedException();
     }
 
-    public Task<bool> IsGameToday()
+    public bool IsGameToday()
     {
-        throw new NotImplementedException();
+        DateTime today = DateTime.Now;
+
+        Game game = null;
+
+        bool result = false;
+
+
+        if (game != null && game.Date == DateTime.Now)
+        {
+            return result;
+
+        }
+
+        return result;
     }
 }
