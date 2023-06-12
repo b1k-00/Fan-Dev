@@ -19,9 +19,17 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return entity;
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        T found = _dbContext.Find<T>(id);
+        //since I will be returning <T> as a type i declared it there
+        //instead of using var
+
+        if (found != null)
+        {
+            _dbContext.Remove(found);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 
     public async Task<IReadOnlyCollection<T>> GetAllAsync()
@@ -34,8 +42,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return await _dbContext.Set<T>().FindAsync(id);
     }
 
-    public Task UpdateAsync(T entity)
+    public async Task UpdateAsync(T entity)
     {
-        throw new NotImplementedException();
+        _dbContext.Update(entity);
+        await _dbContext.SaveChangesAsync();
     }
 }
