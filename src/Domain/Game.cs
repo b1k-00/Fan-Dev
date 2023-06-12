@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain;
-public class Game : BaseEntity
+namespace Domain
 {
-    public int GameId { get; set; }
+    public class Game : BaseEntity
+    {
 
-    public DateTime Date { get; set; }
+        public int GameId { get; set; }
 
-    public string Location { get; set; }
+        public DateTime Date { get; set; }
+
+        public string Location { get; set; }
+    }
+
+
 }
