@@ -24,6 +24,7 @@ public class TT_StatsDBContext : DbContext
 
     public DbSet<Team> Teams { get; set; }
     public DbSet<Game> Games { get; set; }
+    public DbSet<BoxScore> Stats { get; set; }
 
     public DbSet<Information> Info { get; set; }
 
