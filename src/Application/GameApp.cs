@@ -17,9 +17,41 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         _gameRepo = gameRepo;
     }
 
-    public Task<int> GetGameCount()
+    public int GetGameCount()
     {
-        throw new NotImplementedException();
+        List<Game> games = new List<Game>();
+
+        int gameCount = 0;
+
+        foreach (Game game in games)
+        {
+            if (game.GameId != null && game.Date != null && game.Location != null)
+            {
+                gameCount++;
+
+            }
+
+        }
+
+        return gameCount;
+    }
+
+    public bool IsGameToday()
+    {
+        DateTime today = DateTime.Now;
+
+        Game game = null;
+
+        bool result = false;
+
+
+        if (game != null && game.Date == DateTime.Now)
+        {
+            return result;
+
+        }
+
+        return result;
     }
 
     public Task<List<Game>> GetPastGames()
@@ -40,23 +72,5 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
     public Task<List<Game>> GetGamesByLocation()
     {
         throw new NotImplementedException();
-    }
-
-    public bool IsGameToday()
-    {
-        DateTime today = DateTime.Now;
-
-        Game game = null;
-
-        bool result = false;
-
-
-        if (game != null && game.Date == DateTime.Now)
-        {
-            return result;
-
-        }
-
-        return result;
     }
 }
