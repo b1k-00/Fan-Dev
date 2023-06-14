@@ -17,8 +17,8 @@ public static class PersistenceServicesRegistration
     public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
         //Registers the DbContext with our DI container
-        services.AddDbContext<TT_StatsDBContext>(
-            options => options.UseSqlServer(configuration.GetConnectionString("TT_StatsDb"))
+        services.AddDbContext<FanDevDBContext>(
+            options => options.UseSqlServer(configuration.GetConnectionString("FanDev"))
         );
 
         //Registers the Generic Repository. Registering this way allows us to use the GenericRepository
@@ -26,7 +26,7 @@ public static class PersistenceServicesRegistration
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
         //Register all of the other repositories here
-        services.AddScoped<IDadJokeRepository, DadJokeRepository>();
+        //services.AddScoped<IDadJokeRepository, DadJokeRepository>();
 
         return services;
     }

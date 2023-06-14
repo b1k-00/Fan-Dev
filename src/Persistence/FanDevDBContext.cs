@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
 
-public class TT_StatsDBContext : DbContext
+public class FanDevDBContext : DbContext
 {
 
-    public TT_StatsDBContext(DbContextOptions<TT_StatsDBContext> options) : base(options)
+    public FanDevDBContext(DbContextOptions<FanDevDBContext> options) : base(options)
     {
     }
 
@@ -17,14 +17,14 @@ public class TT_StatsDBContext : DbContext
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(TT_StatsDBContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(FanDevDBContext).Assembly);
     }
 
     #region DbSets
 
     public DbSet<Team> Teams { get; set; }
     public DbSet<Game> Games { get; set; }
-    public DbSet<BoxScore> Stats { get; set; }
+    public DbSet<Stat> Stats { get; set; }
 
     public DbSet<Information> Info { get; set; }
 

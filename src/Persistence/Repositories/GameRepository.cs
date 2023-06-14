@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace Persistence.Repositories;
 public class GameRepository : GenericRepository<Game>
 {
-    private readonly TT_StatsDBContext _dbContext;
+    private readonly FanDevDBContext _dbContext;
 
-    public GameRepository(TT_StatsDBContext dbContext) : base(dbContext)
+    public GameRepository(FanDevDBContext dbContext) : base(dbContext)
     {
         _dbContext = dbContext;
     }

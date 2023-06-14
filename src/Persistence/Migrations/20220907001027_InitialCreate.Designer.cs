@@ -11,7 +11,7 @@ using Persistence;
 
 namespace Persistence.Migrations
 {
-    [DbContext(typeof(TT_StatsDBContext))]
+    [DbContext(typeof(FanDevDBContext))]
     [Migration("20220907001027_InitialCreate")]
     partial class InitialCreate
     {
