@@ -1,12 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [FanDev]    Script Date: 6/14/2023 6:38:23 PM ******/
+/****** Object:  Database [FanDev]    Script Date: 6/19/2023 9:54:08 AM ******/
 CREATE DATABASE [FanDev]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'TT_Stats', FILENAME = N'C:\Users\brenn\TT_Stats.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'FanDev', FILENAME = N'C:\Users\brenn\FanDev.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'TT_Stats_log', FILENAME = N'C:\Users\brenn\TT_Stats_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'FanDev_log', FILENAME = N'C:\Users\brenn\FanDev_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
  WITH CATALOG_COLLATION = DATABASE_DEFAULT
 GO
 ALTER DATABASE [FanDev] SET COMPATIBILITY_LEVEL = 150
