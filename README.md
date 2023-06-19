@@ -1,9 +1,9 @@
-# Travin Thibodeaux Stat Tracker
+# FAN-DEV Stat Tracker
 
 
 ## What is this?
 
-This is a mostly empty solution setup to act as a base for the TT STAT TRACKER.
+This is a mostly empty solution setup to act as a base for the FAN-DEV STAT TRACKER.
 
 Some things to note:
  - This project is designed with [Clean Architecture](https://www.c-sharpcorner.com/article/clean-architecture-with-net-62/).
