@@ -11,7 +11,7 @@ GO
 CREATE TABLE [dbo].[Game](
 [GameId] [int] IDENTITY(1,1) NOT NULL,
 [Date] [datetime] NOT NULL,
-[Location] varchar NULL,
+[Location] [varchar](50) NULL,
 CONSTRAINT [PK_Game] PRIMARY KEY CLUSTERED
 (
 [GameId] ASC
@@ -28,9 +28,9 @@ GO
 
 CREATE TABLE [dbo].[Team](
 [TeamId] [int] IDENTITY(1,1) NOT NULL,
-[TeamName] varchar NOT NULL,
-[TeamColor] varchar NULL,
-[TeamArena] varchar NULL,
+[TeamName] [varchar](50)NOT NULL,
+[TeamColor] [varchar](50) NULL,
+[TeamArena] [varchar](50) NULL,
 CONSTRAINT [PK_Team] PRIMARY KEY CLUSTERED
 (
 [TeamId] ASC
@@ -48,10 +48,10 @@ GO
 CREATE TABLE [dbo].[Information](
 [PlayerId] [int] IDENTITY(1,1) NOT NULL,
 [TeamId] [int] NOT NULL,
-[FirstName] varchar NOT NULL,
-[Lastname] varchar NOT NULL,
+[FirstName] [varchar](50) NOT NULL,
+[Lastname] [varchar](50) NOT NULL,
 [JerseyNumber] [int] NOT NULL,
-[Origin] varchar NULL,
+[Origin] [varchar](50) NULL,
 CONSTRAINT [PK_Information] PRIMARY KEY CLUSTERED
 (
 [PlayerId] ASC
