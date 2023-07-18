@@ -10,13 +10,13 @@ public interface IGameApp
 {
     bool IsGameToday();
 
-    int GetGameCount();
+    //int GetGameCount();
 
-    Task<List<Game>> GetGamesByPlayer();
+    //Task<List<Game>> GetGamesByPlayer();
 
-    Task<List<Game>> GetGamesByLocation();
+    //Task<List<Game>> GetGamesByLocation();
 
-    Task<List<Game>> GetPastGames();
+    //Task<List<Game>> GetPastGames();
 
-    Task<List<Game>> GetUpcomingGames();
+    //Task<List<Game>> GetUpcomingGames();
 }

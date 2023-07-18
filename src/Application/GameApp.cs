@@ -17,24 +17,7 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         _gameRepo = gameRepo;
     }
 
-    public int GetGameCount()
-    {
-        List<Game> games = new List<Game>();
-
-        int gameCount = 0;
-
-        foreach (Game game in games)
-        {
-            if (game.GameId != null && game.Date != null && game.Location != null)
-            {
-                gameCount++;
-
-            }
-
-        }
-
-        return gameCount;
-    }
+   
 
     public bool IsGameToday()
     {
@@ -54,23 +37,42 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         return result;
     }
 
-    public Task<List<Game>> GetPastGames()
-    {
-        throw new NotImplementedException();
-    }
+    //public int GetGameCount()
+    //{
+    //    List<Game> games = new List<Game>();
 
-    public Task<List<Game>> GetUpcomingGames()
-    {
-        throw new NotImplementedException();
-    }
+    //    int gameCount = 0;
 
-    public Task<List<Game>> GetGamesByPlayer()
-    {
-        throw new NotImplementedException();
-    }
+    //    foreach (Game game in games)
+    //    {
+    //        if (game.GameId != null && game.Date != null && game.Location != null)
+    //        {
+    //            gameCount++;
 
-    public Task<List<Game>> GetGamesByLocation()
-    {
-        throw new NotImplementedException();
-    }
+    //        }
+
+    //    }
+
+    //    return gameCount;
+    //}
+
+    //public Task<List<Game>> GetPastGames()
+    //{
+    //    throw new NotImplementedException();
+    //}
+
+    //public Task<List<Game>> GetUpcomingGames()
+    //{
+    //    throw new NotImplementedException();
+    //}
+
+    //public Task<List<Game>> GetGamesByPlayer()
+    //{
+    //    throw new NotImplementedException();
+    //}
+
+    //public Task<List<Game>> GetGamesByLocation()
+    //{
+    //    throw new NotImplementedException();
+    //}
 }
