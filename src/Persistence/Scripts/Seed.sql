@@ -42,7 +42,7 @@ INSERT INTO [dbo].[Game]
            ,[Location])
      VALUES
            (0
-           ,'2023-063-02 06:00:00'
+           ,'2023-06-02 06:00:00'
            ,'Manama, Bahrain')
 GO
 

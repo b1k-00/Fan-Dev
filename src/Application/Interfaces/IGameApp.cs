@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Application.Interfaces;
 public interface IGameApp
 {
-    bool IsGameToday();
+    Task<bool> IsGameToday(DateTime dateTime);
 
     //int GetGameCount();
 

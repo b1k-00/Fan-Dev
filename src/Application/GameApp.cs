@@ -19,11 +19,11 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
 
    
 
-    public bool IsGameToday()
+    public async Task<bool> IsGameToday(DateTime dateTime)
     {
         DateTime today = DateTime.Now;
 
-        Game game = null;
+        Game game = new Game();
 
         bool result = false;
 
