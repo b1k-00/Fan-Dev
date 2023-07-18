@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Persistence;
 
-public class JuniorAssociateDesignTimeFactory : IDesignTimeDbContextFactory<FanDevDBContext>
+public class FanDevDesignTimeFactory : IDesignTimeDbContextFactory<FanDevDBContext>
 {
     public FanDevDBContext CreateDbContext(string[] args)
     {
@@ -12,7 +12,7 @@ public class JuniorAssociateDesignTimeFactory : IDesignTimeDbContextFactory<FanD
             .AddJsonFile(Directory.GetCurrentDirectory() + "/dbsettings.json")
             .Build();
 
-        var connectionString = configuration.GetConnectionString("JuniorAssociateDb");
+        var connectionString = configuration.GetConnectionString("FanDevDb");
 
         var builder = new DbContextOptionsBuilder<FanDevDBContext>();
         builder.UseSqlServer(connectionString);

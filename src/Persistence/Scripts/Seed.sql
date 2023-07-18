@@ -1,15 +1,6 @@
-﻿-- INSERT VALUES INTO GAME TABLE --
-
-
-INSERT INTO [dbo].[Game]
-           ([GameId]
-           ,[Date]
-           ,[Location])
-     VALUES
-           (0
-           ,'2023-063-02 06:00:00'
-           ,'Manama, Bahrain')
+﻿USING [FanDev]
 GO
+
 
 -- INSERT VALUES INTO TEAM TABLE --
 
@@ -40,6 +31,19 @@ INSERT INTO [dbo].[Information]
            ,'Scott'
            ,25
            , 'United States' )
+GO
+
+-- INSERT VALUES INTO GAME TABLE --
+
+
+INSERT INTO [dbo].[Game]
+           ([GameId]
+           ,[Date]
+           ,[Location])
+     VALUES
+           (0
+           ,'2023-063-02 06:00:00'
+           ,'Manama, Bahrain')
 GO
 
 

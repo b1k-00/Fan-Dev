@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(FanDevDBContext))]
-    partial class JuniorAssociateDbContextModelSnapshot : ModelSnapshot
+    partial class FanDevDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
