@@ -17,25 +17,44 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         _gameRepo = gameRepo;
     }
 
-   
-
-    public async Task<bool> IsGameToday(DateTime dateTime)
+    public async Task<List<Game>> GetGames()
     {
-        DateTime today = DateTime.Now;
+        List<Game> games = new List<Game>();
 
-        Game game = new Game();
-
-        bool result = false;
-
-
-        if (game != null && game.Date == DateTime.Now)
+        try
         {
-            return result;
-
+            games = (await _gameRepo.GetAllAsync()).ToList<Game>();
+        }
+        catch (Exception ex)
+        {
+            games = new List<Game> { };
         }
 
-        return result;
+        return games;
     }
+
+    public Task<List<Game>> GetGame(int GameId)
+    {
+        throw new NotImplementedException();
+    }
+
+    //public async Task<bool> IsGameToday(DateTime dateTime)
+    //{
+    //    DateTime today = DateTime.Now;
+
+    //    Game game = new Game();
+
+    //    bool result = false;
+
+
+    //    if (game != null && game.Date == DateTime.Now)
+    //    {
+    //        return result;
+
+    //    }
+
+    //    return result;
+    //}
 
     //public int GetGameCount()
     //{
