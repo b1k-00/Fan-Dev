@@ -5,13 +5,11 @@ GO
 -- INSERT VALUES INTO TEAM TABLE --
 
 INSERT INTO [dbo].[Team]
-           ([TeamId]
-           ,[TeamName]
+           ([TeamName]
            ,[TeamColor]
            ,[TeamArena])
      VALUES
-           (1
-           ,'Al Mananama'
+           ('Al Mananama'
            ,'Blue'
            ,'Lion Den')
 GO
@@ -37,12 +35,10 @@ GO
 
 
 INSERT INTO [dbo].[Game]
-           ([GameId]
-           ,[Date]
+           ([Date]
            ,[Location])
      VALUES
-           (1
-           ,'2023-06-02 06:00:00'
+           ('2023-06-02 06:00:00'
            ,'Manama, Bahrain')
 GO
 
@@ -62,8 +58,8 @@ INSERT INTO [dbo].[Stat]
            ,[Minutes]
            ,[+/-])
      VALUES
-           (2
-           ,1
+           (1002
+           ,2
            ,5
            ,0
            ,5
