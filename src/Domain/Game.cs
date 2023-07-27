@@ -9,8 +9,6 @@ namespace Domain
     public class Game : BaseEntity
     {
 
-        public int GameId { get; set; }
-
         public DateTime Date { get; set; }
 
         public string Location { get; set; }

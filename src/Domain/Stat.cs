@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Domain;
 public class Stat : BaseEntity
 {
-    public int StatId { get; set; }
 
     public int PlayerId { get; set; }
 
