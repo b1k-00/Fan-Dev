@@ -18,7 +18,7 @@ public static class PersistenceServicesRegistration
     {
         //Registers the DbContext with our DI container
         services.AddDbContext<FanDevDBContext>(
-            options => options.UseSqlServer(configuration.GetConnectionString("FanDev"))
+            options => options.UseSqlServer(configuration.GetConnectionString("FanDevDb"))
         );
 
         //Registers the Generic Repository. Registering this way allows us to use the GenericRepository

@@ -17,26 +17,26 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         _gameRepo = gameRepo;
     }
 
-    public async Task<List<Game>> GetGames()
-    {
-        List<Game> games = new List<Game>();
+    //public async Task<List<Game>> GetGames()
+    //{
+    //    List<Game> games = new List<Game>();
 
-        try
-        {
-            games = (await _gameRepo.GetAllAsync()).ToList<Game>();
-        }
-        catch (Exception ex)
-        {
-            games = new List<Game> { };
-        }
+    //    try
+    //    {
+    //        games = (await _gameRepo.GetAllAsync()).ToList<Game>();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        games = new List<Game> { };
+    //    }
 
-        return games;
-    }
+    //    return games;
+    //}
 
-    public Task<List<Game>> GetGame(int GameId)
-    {
-        throw new NotImplementedException();
-    }
+    //public Task<List<Game>> GetGame(int GameId)
+    //{
+    //    throw new NotImplementedException();
+    //}
 
     //public async Task<bool> IsGameToday(DateTime dateTime)
     //{

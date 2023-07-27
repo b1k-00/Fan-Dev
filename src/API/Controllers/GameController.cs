@@ -16,15 +16,15 @@ public class GameController : BaseApiAppController<Game>
     }
 
 
-    [HttpGet("GetGames")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    //[HttpGet("GetGames")]
+    //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
+    //[ProducesResponseType(StatusCodes.Status404NotFound)]
 
-    public async Task<List<Game>> GetGames()
-    {
-        return await _gameApp.GetGames();
+    //public async Task<List<Game>> GetGames()
+    //{
+    //    return await _gameApp.GetGames();
 
-    }
+    //}
 
     //[HttpPost("IsGameToday")]
     //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]

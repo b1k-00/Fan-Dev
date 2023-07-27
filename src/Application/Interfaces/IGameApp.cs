@@ -10,7 +10,7 @@ public interface IGameApp
 {
     //Task<bool> IsGameToday(DateTime dateTime);
 
-    Task<List<Game>> GetGames();
+    //Task<List<Game>> GetGames();
 
     //Task<List<Game>> GetGame(int GameId);
 
