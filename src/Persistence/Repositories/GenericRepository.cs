@@ -5,9 +5,9 @@ namespace Persistence.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
-    private readonly TT_StatsDBContext _dbContext;
+    private readonly FanDevDBContext _dbContext;
 
-    public GenericRepository(TT_StatsDBContext dbContext)
+    public GenericRepository(FanDevDBContext dbContext)
     {
         _dbContext = dbContext;
     }

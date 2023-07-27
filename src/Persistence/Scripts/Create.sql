@@ -1,86 +1,82 @@
-USE [TT_Stats]
+USE [FanDev]
 GO
 
-/****** Object:  Table [dbo].[TT_Game]    Script Date: 6/11/2023 2:51:18 PM ******/
+/****** Object:  Table [dbo].[Game]    Script Date: 7/27/2023 2:14:41 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[TT_Game](
-	[GameId] [int] IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Game](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Date] [datetime] NOT NULL,
 	[Location] [varchar](50) NULL,
- CONSTRAINT [PK_TT_Games] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Game] PRIMARY KEY CLUSTERED 
 (
-	[GameId] ASC
+	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[TT_Team]    Script Date: 6/11/2023 2:52:19 PM ******/
+
+/****** Object:  Table [dbo].[Team]    Script Date: 7/27/2023 2:15:06 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[TT_Team](
-	[TeamId] [int] IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Team](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[TeamName] [varchar](50) NOT NULL,
-	[TeamArena] [varchar](50) NULL,
 	[TeamColor] [varchar](50) NULL,
- CONSTRAINT [PK_TT_Team] PRIMARY KEY CLUSTERED 
+	[TeamArena] [varchar](50) NULL,
+ CONSTRAINT [PK_Team] PRIMARY KEY CLUSTERED 
 (
-	[TeamId] ASC
+	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
 
-
-
-USE [TT_Stats]
-GO
-
-/****** Object:  Table [dbo].[TT_Information]    Script Date: 6/11/2023 2:51:45 PM ******/
+/****** Object:  Table [dbo].[Information]    Script Date: 7/27/2023 2:15:16 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[TT_Information](
-	[PlayerId] [int] IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Information](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[TeamId] [int] NOT NULL,
 	[FirstName] [varchar](50) NOT NULL,
-	[LastName] [varchar](50) NOT NULL,
+	[Lastname] [varchar](50) NOT NULL,
 	[JerseyNumber] [int] NOT NULL,
 	[Origin] [varchar](50) NULL,
- CONSTRAINT [PK_TT_Information] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Information] PRIMARY KEY CLUSTERED 
 (
-	[PlayerId] ASC
+	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[TT_Information]  WITH CHECK ADD  CONSTRAINT [FK_TT_Information_TT_Teams] FOREIGN KEY([TeamId])
-REFERENCES [dbo].[TT_Teams] ([TeamId])
+ALTER TABLE [dbo].[Information]  WITH CHECK ADD  CONSTRAINT [FK_Information_Team] FOREIGN KEY([TeamId])
+REFERENCES [dbo].[Team] ([Id])
 GO
 
-ALTER TABLE [dbo].[TT_Information] CHECK CONSTRAINT [FK_TT_Information_TT_Teams]
+ALTER TABLE [dbo].[Information] CHECK CONSTRAINT [FK_Information_Team]
 GO
 
-/****** Object:  Table [dbo].[TT_BoxScore]    Script Date: 6/11/2023 2:49:03 PM ******/
+/****** Object:  Table [dbo].[Stat]    Script Date: 7/27/2023 2:15:24 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[TT_BoxScore](
-	[StatsId] [int] NOT NULL,
+CREATE TABLE [dbo].[Stat](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[PlayerId] [int] NOT NULL,
 	[GameId] [int] NOT NULL,
 	[Points] [int] NOT NULL,
@@ -91,27 +87,31 @@ CREATE TABLE [dbo].[TT_BoxScore](
 	[Steals] [int] NOT NULL,
 	[Blocks] [int] NOT NULL,
 	[Minutes] [int] NOT NULL,
-	[+/-] [int] IDENTITY(1,1) NOT NULL
+	[+/-] [int] NULL,
+ CONSTRAINT [PK_Stat] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[TT_BoxScore]  WITH CHECK ADD  CONSTRAINT [FK_TT_BoxScore_TT_Games] FOREIGN KEY([GameId])
-REFERENCES [dbo].[TT_Games] ([GameId])
+ALTER TABLE [dbo].[Stat]  WITH CHECK ADD  CONSTRAINT [FK_Stat_Game] FOREIGN KEY([GameId])
+REFERENCES [dbo].[Game] ([Id])
 GO
 
-ALTER TABLE [dbo].[TT_BoxScore] CHECK CONSTRAINT [FK_TT_BoxScore_TT_Games]
+ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Game]
 GO
 
-ALTER TABLE [dbo].[TT_BoxScore]  WITH CHECK ADD  CONSTRAINT [FK_TT_BoxScore_TT_Information] FOREIGN KEY([PlayerId])
-REFERENCES [dbo].[TT_Information] ([PlayerId])
+ALTER TABLE [dbo].[Stat]  WITH CHECK ADD  CONSTRAINT [FK_Stat_Information] FOREIGN KEY([PlayerId])
+REFERENCES [dbo].[Information] ([Id])
 GO
 
-ALTER TABLE [dbo].[TT_BoxScore] CHECK CONSTRAINT [FK_TT_BoxScore_TT_Information]
+ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Information]
 GO
 
+ALTER TABLE [dbo].[Stat]  WITH CHECK ADD  CONSTRAINT [FK_Stat_Stat] FOREIGN KEY([Id])
+REFERENCES [dbo].[Stat] ([Id])
+GO
 
-
-
-
-
-
+ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Stat]
+GO

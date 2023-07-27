@@ -16,28 +16,67 @@ public class AppBase<T> : IApp<T> where T : BaseEntity
     {
         _repo = repository;
     }
-    public Task<T> Create(T newEntity)
+    public async Task<T> Create(T newEntity)
     {
-        throw new NotImplementedException();
+        return await _repo.AddAsync(newEntity);
     }
 
-    public Task<string> Delete(int id)
+    public async Task<string> Delete(int id)
     {
-        throw new NotImplementedException();
+        await _repo.DeleteAsync(id);
+
+        var entities = await _repo.GetAllAsync();
+
+        var result = "Failed to Delete";
+        
+        foreach(T entity in entities)
+        {
+            if (entity.Id == id)
+            {
+                await _repo.DeleteAsync(id);
+                result = "Deleted Successfully";
+            }
+        }
+
+        return result;
     }
 
-    public Task<T> Get(int id)
+    public async Task<T> Get(int id)
     {
-        throw new NotImplementedException();
+        return await _repo.GetAsync(id); 
     }
 
-    public Task<List<T>> GetAll()
+    public async Task<List<T>> GetAll()
     {
-        throw new NotImplementedException();
+        List<T> result = new List<T>();
+
+        try
+        {
+            result = (await _repo.GetAllAsync()).ToList();
+        }
+
+        catch (Exception ex)
+        {
+            result = new List<T>();
+        }
+
+        return (await _repo.GetAllAsync()).ToList();
     }
 
-    public Task<T> Update(T entity)
+    public async Task<string > Update(T entity)
     {
-        throw new NotImplementedException();
+        var result = "Successfully Updated";
+
+        try
+        {
+           await _repo.UpdateAsync(entity);
+        }
+
+        catch (Exception ex)
+        {
+            result = "Update Failure";
+        }
+
+        return result;
     }
 }

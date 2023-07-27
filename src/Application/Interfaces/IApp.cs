@@ -11,7 +11,7 @@ public interface IApp<T> where T : class
 
     Task<List<T>> GetAll();
 
-    Task<T> Update(T entity);
+    Task<string> Update(T entity);
 
     Task<string> Delete(int id);
 

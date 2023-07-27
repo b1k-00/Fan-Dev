@@ -1,26 +1,26 @@
-﻿using Application.Persistence;
-using Domain;
+﻿//using Application.Persistence;
+//using Domain;
 
-namespace Persistence.Repositories;
+//namespace Persistence.Repositories;
 
-public class DadJokeRepository : GenericRepository<DadJoke>, IDadJokeRepository
-{
-    private readonly TT_StatsDBContext _dbContext;
+//public class DadJokeRepository : GenericRepository<DadJoke>, IDadJokeRepository
+//{
+//    private readonly TT_StatsDBContext _dbContext;
 
-    public DadJokeRepository(TT_StatsDBContext dbContext) : base(dbContext)
-    {
-        _dbContext = dbContext;
-    }
+//    public DadJokeRepository(TT_StatsDBContext dbContext) : base(dbContext)
+//    {
+//        _dbContext = dbContext;
+//    }
 
-    public async Task RateDadJokeAsync(int dadJokeId, int rating)
-    {
-        var dadJoke = await _dbContext.DadJokes.FindAsync(dadJokeId);
+//    public async Task RateDadJokeAsync(int dadJokeId, int rating)
+//    {
+//        var dadJoke = await _dbContext.DadJokes.FindAsync(dadJokeId);
 
-        if(dadJoke != null)
-        {
-            dadJoke.Rating = rating;
-            _dbContext.Update(dadJoke);
-            await _dbContext.SaveChangesAsync();
-        }
-    }
-}
+//        if(dadJoke != null)
+//        {
+//            dadJoke.Rating = rating;
+//            _dbContext.Update(dadJoke);
+//            await _dbContext.SaveChangesAsync();
+//        }
+//    }
+//}

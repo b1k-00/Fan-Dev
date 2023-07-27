@@ -8,15 +8,21 @@ using System.Threading.Tasks;
 namespace Application.Interfaces;
 public interface IGameApp
 {
-    Task<List<Game>> GetPastGames();
+    //Task<bool> IsGameToday(DateTime dateTime);
 
-    Task<List<Game>> GetUpcomingGames();
+    //Task<List<Game>> GetGames();
 
-    Task<int> GetGameCount();
+    //Task<List<Game>> GetGame(int GameId);
 
-    Task<List<Game>> GetGamesByPlayer();
+    //Task<List<Game>> GetGamesByDate(DateTime date);
 
-    Task<List<Game>> GetGamesByLocation();
+    //int GetGameCount();
 
-    Task<bool> IsGameToday();
+    //Task<List<Game>> GetGamesByPlayer();
+
+    //Task<List<Game>> GetGamesByLocation();
+
+    //Task<List<Game>> GetPastGames();
+
+    //Task<List<Game>> GetUpcomingGames();
 }
