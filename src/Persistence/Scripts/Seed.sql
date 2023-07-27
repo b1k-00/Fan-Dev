@@ -35,12 +35,10 @@ GO
 
 
 INSERT INTO [dbo].[Game]
-           ([Id]
-           ,[Date]
+           ([Date]
            ,[Location])
      VALUES
-           (1
-           ,'2023-06-02 06:00:00'
+           ('2023-06-02 06:00:00'
            ,'Manama, Bahrain')
 GO
 
