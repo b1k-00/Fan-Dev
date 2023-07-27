@@ -58,8 +58,8 @@ INSERT INTO [dbo].[Stat]
            ,[Minutes]
            ,[+/-])
      VALUES
-           (2
-           ,1
+           (1002
+           ,2
            ,5
            ,0
            ,5
