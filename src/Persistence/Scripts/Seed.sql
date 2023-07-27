@@ -10,7 +10,7 @@ INSERT INTO [dbo].[Team]
            ,[TeamColor]
            ,[TeamArena])
      VALUES
-           (0
+           (1
            ,'Al Mananama'
            ,'Blue'
            ,'Lion Den')
@@ -26,7 +26,7 @@ INSERT INTO [dbo].[Information]
            ,[JerseyNumber]
            ,[Origin])
      VALUES
-           (0
+           (1
            ,'Bernard'
            ,'Scott'
            ,25
@@ -41,7 +41,7 @@ INSERT INTO [dbo].[Game]
            ,[Date]
            ,[Location])
      VALUES
-           (0
+           (1
            ,'2023-06-02 06:00:00'
            ,'Manama, Bahrain')
 GO
@@ -62,8 +62,8 @@ INSERT INTO [dbo].[Stat]
            ,[Minutes]
            ,[+/-])
      VALUES
-           (0
-           ,0
+           (2
+           ,1
            ,5
            ,0
            ,5
