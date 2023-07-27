@@ -33,8 +33,13 @@ builder.Services.AddDbContext<FanDevDBContext>(options =>
 
 builder.Services.AddScoped<IGameApp, GameApp>();
 builder.Services.AddScoped<IGenericRepository<Game>, GameRepository>();
+builder.Services.AddScoped<ITeamApp, TeamApp>();
+builder.Services.AddScoped<IGenericRepository<Team>, TeamRepository>();
+
 
 builder.Services.AddScoped<IApp<Game>, GameApp>();
+builder.Services.AddScoped<IApp<Team>, TeamApp>();
+
 
 //builder.Services.ConfigurePersistenceServices(builder.Configuration);
 
