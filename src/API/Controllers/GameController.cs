@@ -25,13 +25,5 @@ public class GameController : BaseApiAppController<Game>
 
     }
 
-    [HttpPost("Add")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(bool))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<Game> Create(Game entity)
-    {
-        return await ((IApp<Game>)_gameApp).Create(entity);
-    }
-
 
 }
