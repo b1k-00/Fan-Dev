@@ -68,7 +68,7 @@ GO
 ALTER TABLE [dbo].[Information] CHECK CONSTRAINT [FK_Information_Team]
 GO
 
-/****** Object:  Table [dbo].[Stat]    Script Date: 7/27/2023 2:15:24 AM ******/
+/****** Object:  Table [dbo].[Stat]    Script Date: 7/28/2023 1:32:08 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -87,7 +87,7 @@ CREATE TABLE [dbo].[Stat](
 	[Steals] [int] NOT NULL,
 	[Blocks] [int] NOT NULL,
 	[Minutes] [int] NOT NULL,
-	[+/-] [int] NULL,
+	[Efficiency] [int] NULL,
  CONSTRAINT [PK_Stat] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -115,3 +115,4 @@ GO
 
 ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Stat]
 GO
+

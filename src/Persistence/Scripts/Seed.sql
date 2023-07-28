@@ -56,7 +56,7 @@ INSERT INTO [dbo].[Stat]
            ,[Steals]
            ,[Blocks]
            ,[Minutes]
-           ,[+/-])
+           ,[Efficiency])
      VALUES
            (1002
            ,2
