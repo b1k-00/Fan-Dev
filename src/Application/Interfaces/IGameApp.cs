@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace Application.Interfaces;
 public interface IGameApp
 {
+
+    Task<List<Game>> All();
+
     //Task<bool> IsGameToday(DateTime dateTime);
 
     //Task<List<Game>> GetGames();

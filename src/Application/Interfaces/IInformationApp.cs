@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces;
-public interface ITeamApp
+public interface IInformationApp
 {
-    Task<List<Team>> All();
+    Task<List<Information>> All();
 
 }

@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application;
+using Application.Interfaces;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,5 +14,13 @@ public class TeamController : BaseApiAppController<Team>
 
         _teamapp = teamApp;
 
+    }
+
+    [HttpGet("All")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Team>))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<List<Team>> All()
+    {
+        return await ((_teamapp.All())); 
     }
 }

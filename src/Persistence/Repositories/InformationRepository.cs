@@ -1,0 +1,18 @@
+﻿using Application.Persistence;
+using Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Persistence.Repositories;
+public class InformationRepository : GenericRepository<Information>
+{
+    private readonly FanDevDBContext _dbContext;
+
+    public InformationRepository(FanDevDBContext dbContext) : base(dbContext)
+    {
+        _dbContext = dbContext;
+    }
+}

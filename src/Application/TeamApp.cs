@@ -16,4 +16,21 @@ public class TeamApp : AppBase<Team>, ITeamApp, IApp<Team>
     {
         _teamRepo = teamRepo;
     }
+
+    public async Task<List<Team>> All()
+    {
+        List<Team> teams = new List<Team>();
+
+        try
+        {
+            teams = (await _teamRepo.GetAllAsync()).ToList<Team>();
+
+        }
+        catch (Exception)
+        {
+            teams = new List<Team>();
+        }
+
+        return teams;
+    }
 }
