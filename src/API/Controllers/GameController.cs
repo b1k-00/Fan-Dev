@@ -15,6 +15,24 @@ public class GameController : BaseApiAppController<Game>
 
     }
 
+    [HttpGet("All")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<List<Game>> All()
+    {
+        return await ((_gameApp.All()));
+    }
+
+
+
+    //[HttpGet("{id:int}")]
+    //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
+    //[ProducesResponseType(StatusCodes.Status404NotFound)]
+    //public async Task<T> GetEntity(int id)
+    //{
+    //    return await ((IApp<T>)_app).Get(id);
+    //}
+
 
     //[HttpGet("GetGames")]
     //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]

@@ -17,6 +17,24 @@ public class GameApp : AppBase<Game>, IGameApp, IApp<Game>
         _gameRepo = gameRepo;
     }
 
+    public async Task<List<Game>> All()
+    {
+        List<Game> games = new List<Game>();
+
+        try
+        {
+            games = (await _gameRepo.GetAllAsync()).ToList<Game>();
+
+        }
+        catch (Exception)
+        {
+            games = new List<Game>();
+            
+        }
+
+        return games;
+    }
+
     //public async Task<List<Game>> GetGames()
     //{
     //    List<Game> games = new List<Game>();

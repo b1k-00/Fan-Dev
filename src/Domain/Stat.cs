@@ -26,7 +26,7 @@ public class Stat : BaseEntity
 
     public int Minutes { get; set; }
 
-    public int plusminus { get; set; }
+    public int Efficiency { get; set; }
 
 
 }

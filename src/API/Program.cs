@@ -35,10 +35,16 @@ builder.Services.AddScoped<IGameApp, GameApp>();
 builder.Services.AddScoped<IGenericRepository<Game>, GameRepository>();
 builder.Services.AddScoped<ITeamApp, TeamApp>();
 builder.Services.AddScoped<IGenericRepository<Team>, TeamRepository>();
+builder.Services.AddScoped<IInformationApp, InformationApp>();
+builder.Services.AddScoped<IGenericRepository<Information>, InformationRepository>();
+builder.Services.AddScoped<IStatApp, StatApp>();
+builder.Services.AddScoped<IGenericRepository<Stat>, StatRepository>();
 
 
 builder.Services.AddScoped<IApp<Game>, GameApp>();
 builder.Services.AddScoped<IApp<Team>, TeamApp>();
+builder.Services.AddScoped<IApp<Information>, InformationApp>();
+builder.Services.AddScoped<IApp<Stat>, StatApp>();
 
 
 //builder.Services.ConfigurePersistenceServices(builder.Configuration);

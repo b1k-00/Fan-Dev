@@ -47,21 +47,21 @@ namespace API.Controllers
             return await ((IApp<T>)_app).Delete(id);
         }
 
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<List<T>> All()
-        {
-            return await ((IApp<T>)_app).GetAll();
-        }
+        //[HttpGet]
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
+        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        //public async Task<List<T>> All()
+        //{
+        //    return await ((IApp<T>)_app).GetAll();
+        //}
 
-        [HttpGet("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<T> GetEntity(int id)
-        {
-            return await ((IApp<T>)_app).Get(id);
-        }
+        //[HttpGet("{id:int}")]
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Game>))]
+        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        //public async Task<T> GetEntity(int id)
+        //{
+        //    return await ((IApp<T>)_app).Get(id);
+        //}
 
 
     }
