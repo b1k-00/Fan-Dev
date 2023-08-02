@@ -10,6 +10,8 @@ public interface IStatApp
 {
     Task<List<Stat>> All();
 
-    Task<Stat> GetPoints(int points);
+    Task<List<Stat>> GetStatsByPlayerId (int playerId);
+
+    Task<List<Stat>> GetStatsByGameId (int gameId);
 
 }
