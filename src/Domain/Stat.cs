@@ -12,6 +12,8 @@ public class Stat : BaseEntity
 
     public int GameId { get; set; }
 
+    public int Points { get; set; }
+
     public int ORebounds { get; set; }
 
     public int DRebounds { get; set; }
