@@ -1,24 +1,6 @@
 USE [FanDev]
 GO
 
-/****** Object:  Table [dbo].[Game]    Script Date: 7/27/2023 2:14:41 AM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[Game](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Date] [datetime] NOT NULL,
-	[Location] [varchar](50) NULL,
- CONSTRAINT [PK_Game] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
 
 /****** Object:  Table [dbo].[Team]    Script Date: 7/27/2023 2:15:06 AM ******/
 SET ANSI_NULLS ON
@@ -38,6 +20,89 @@ CREATE TABLE [dbo].[Team](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+/****** Object:  Table [dbo].[TeamMatchup]    Script Date: 8/7/2023 12:33:49 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TeamMatchup](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Team1_Id] [int] NOT NULL,
+	[Team2_Id] [int] NOT NULL,
+ CONSTRAINT [PK_TeamMatchup] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[TeamMatchup]  WITH CHECK ADD  CONSTRAINT [FK_TeamMatchup_Team] FOREIGN KEY([Team2_Id])
+REFERENCES [dbo].[Team] ([Id])
+GO
+
+ALTER TABLE [dbo].[TeamMatchup] CHECK CONSTRAINT [FK_TeamMatchup_Team]
+GO
+
+ALTER TABLE [dbo].[TeamMatchup]  WITH CHECK ADD  CONSTRAINT [FK_TeamMatchup_Team1] FOREIGN KEY([Team1_Id])
+REFERENCES [dbo].[Team] ([Id])
+GO
+
+ALTER TABLE [dbo].[TeamMatchup] CHECK CONSTRAINT [FK_TeamMatchup_Team1]
+GO
+
+/****** Object:  Table [dbo].[Game]    Script Date: 8/7/2023 12:34:19 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Game](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[Location] [varchar](50) NULL,
+ CONSTRAINT [PK_Game] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[GameMatchup]    Script Date: 8/7/2023 12:34:43 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[GameMatchup](
+	[Id] [int] NOT NULL,
+	[Game_Id] [int] NOT NULL,
+	[Matchup_Id] [int] NOT NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[GameMatchup]  WITH CHECK ADD  CONSTRAINT [FK_GameMatchup_Game] FOREIGN KEY([Game_Id])
+REFERENCES [dbo].[Game] ([Id])
+GO
+
+ALTER TABLE [dbo].[GameMatchup] CHECK CONSTRAINT [FK_GameMatchup_Game]
+GO
+
+ALTER TABLE [dbo].[GameMatchup]  WITH CHECK ADD  CONSTRAINT [FK_GameMatchup_TeamMatchup] FOREIGN KEY([Matchup_Id])
+REFERENCES [dbo].[TeamMatchup] ([Id])
+GO
+
+ALTER TABLE [dbo].[GameMatchup] CHECK CONSTRAINT [FK_GameMatchup_TeamMatchup]
+GO
+
+
+
+
+
 
 
 /****** Object:  Table [dbo].[Information]    Script Date: 7/27/2023 2:15:16 AM ******/
