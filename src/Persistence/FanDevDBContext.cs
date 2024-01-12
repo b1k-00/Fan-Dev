@@ -22,6 +22,9 @@ public class FanDevDBContext : DbContext
 
     #region DbSets
 
+    /// <summary>
+    /// may need to update below with correct names
+    /// </summary>
     public DbSet<Team> Team { get; set; }
     public DbSet<Game> Game { get; set; }
     public DbSet<Stat> Stat { get; set; }

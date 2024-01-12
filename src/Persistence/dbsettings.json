@@ -1,5 +1,5 @@
 ﻿{
   "ConnectionStrings": {
-    "FanDevDb": "Server=(localdb)\\mssqllocaldb; Integrated Security=true; Initial Catalog=FanDev; MultipleActiveResultSets=False; Connection Timeout=30;"
+    "FanDevDb": "Server=BC0LL1N5\\SQLEXPRESS; Integrated Security=true; Initial Catalog=FanDev; MultipleActiveResultSets=False; Connection Timeout=30;"
   }
 }
