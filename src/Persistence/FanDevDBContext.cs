@@ -29,7 +29,7 @@ public class FanDevDBContext : DbContext
     public DbSet<Game> Game { get; set; }
     public DbSet<Stat> Stat { get; set; }
 
-    public DbSet<Information> Information { get; set; }
+    public DbSet<Player> Information { get; set; }
 
 
     #endregion

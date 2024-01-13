@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace Application.Interfaces;
 public interface IInformationApp
 {
-    Task<List<Information>> All();
+    Task<List<Player>> All();
 
 }

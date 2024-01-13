@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Persistence.Repositories;
-public class InformationRepository : GenericRepository<Information>
+public class InformationRepository : GenericRepository<Player>
 {
     private readonly FanDevDBContext _dbContext;
 

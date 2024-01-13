@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 namespace Domain;
 public class Stat : BaseEntity
 {
-
-    public int PlayerId { get; set; }
+    public int Id { get; set; }
 
     public int GameId { get; set; }
 
+    public int PlayerId { get; set; }
+
+
     public int Points { get; set; }
-
-    public int ORebounds { get; set; }
-
-    public int DRebounds { get; set; }
 
     public int Rebounds { get; set; }
 
@@ -26,9 +24,7 @@ public class Stat : BaseEntity
 
     public int Blocks { get; set; }
 
-    public int Minutes { get; set; }
-
-    public int Efficiency { get; set; }
+    public int Fouls { get; set; }
 
 
 }

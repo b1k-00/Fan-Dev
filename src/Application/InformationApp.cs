@@ -8,27 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application;
-public class InformationApp : AppBase<Information>, IInformationApp, IApp<Information>
+public class InformationApp : AppBase<Player>, IInformationApp, IApp<Player>
 {
-    public IGenericRepository<Information> _informationRepo { get; set; }
+    public IGenericRepository<Player> _informationRepo { get; set; }
 
-    public InformationApp(IGenericRepository<Information> informationRepo) : base(informationRepo)
+    public InformationApp(IGenericRepository<Player> informationRepo) : base(informationRepo)
     {
         _informationRepo = informationRepo;
     }
 
-    public async Task<List<Information>> All()
+    public async Task<List<Player>> All()
     {
-        List<Information> information = new List<Information>();
+        List<Player> information = new List<Player>();
 
         try
         {
-            information = (await _informationRepo.GetAllAsync()).ToList<Information>();
+            information = (await _informationRepo.GetAllAsync()).ToList<Player>();
 
         }
         catch (Exception)
         {
-            information = new List<Information>();
+            information = new List<Player>();
         }
 
         return information;
