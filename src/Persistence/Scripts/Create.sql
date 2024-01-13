@@ -1,118 +1,124 @@
 USE [FanDev]
 GO
 
-/****** Object:  Table [dbo].[Game]    Script Date: 7/27/2023 2:14:41 AM ******/
+/****** Object:  Table [dbo].[Games]    Script Date: 1/13/2024 2:01:13 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Game](
+CREATE TABLE [dbo].[Games](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Location] [varchar](50) NOT NULL,
 	[Date] [datetime] NOT NULL,
-	[Location] [varchar](50) NULL,
- CONSTRAINT [PK_Game] PRIMARY KEY CLUSTERED 
+	[HomeTeamId] [int] NOT NULL,
+	[AwayTeamId] [int] NOT NULL,
+	[FinalScore] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Games] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
+ALTER TABLE [dbo].[Games]  WITH CHECK ADD  CONSTRAINT [FK_Games_Teams] FOREIGN KEY([HomeTeamId])
+REFERENCES [dbo].[Teams] ([Id])
+GO
 
-/****** Object:  Table [dbo].[Team]    Script Date: 7/27/2023 2:15:06 AM ******/
+ALTER TABLE [dbo].[Games] CHECK CONSTRAINT [FK_Games_Teams]
+GO
+
+ALTER TABLE [dbo].[Games]  WITH CHECK ADD  CONSTRAINT [FK_Games_Teams1] FOREIGN KEY([AwayTeamId])
+REFERENCES [dbo].[Teams] ([Id])
+GO
+
+ALTER TABLE [dbo].[Games] CHECK CONSTRAINT [FK_Games_Teams1]
+GO
+
+/****** Object:  Table [dbo].[Teams]    Script Date: 1/13/2024 2:01:37 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Team](
+CREATE TABLE [dbo].[Teams](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[TeamName] [varchar](50) NOT NULL,
-	[TeamColor] [varchar](50) NULL,
-	[TeamArena] [varchar](50) NULL,
- CONSTRAINT [PK_Team] PRIMARY KEY CLUSTERED 
+	[Division] [varchar](50) NOT NULL,
+	[Arena] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Teams] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-
-/****** Object:  Table [dbo].[Information]    Script Date: 7/27/2023 2:15:16 AM ******/
+/****** Object:  Table [dbo].[Players]    Script Date: 1/13/2024 2:02:00 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Information](
+CREATE TABLE [dbo].[Players](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[PlayerName] [varchar](50) NOT NULL,
+	[Position] [varchar](10) NOT NULL,
 	[TeamId] [int] NOT NULL,
-	[FirstName] [varchar](50) NOT NULL,
-	[Lastname] [varchar](50) NOT NULL,
 	[JerseyNumber] [int] NOT NULL,
-	[Origin] [varchar](50) NULL,
- CONSTRAINT [PK_Information] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Players] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Information]  WITH CHECK ADD  CONSTRAINT [FK_Information_Team] FOREIGN KEY([TeamId])
-REFERENCES [dbo].[Team] ([Id])
+ALTER TABLE [dbo].[Players]  WITH CHECK ADD  CONSTRAINT [FK_Players_Players] FOREIGN KEY([TeamId])
+REFERENCES [dbo].[Teams] ([Id])
 GO
 
-ALTER TABLE [dbo].[Information] CHECK CONSTRAINT [FK_Information_Team]
+ALTER TABLE [dbo].[Players] CHECK CONSTRAINT [FK_Players_Players]
 GO
 
-/****** Object:  Table [dbo].[Stat]    Script Date: 7/28/2023 1:32:08 PM ******/
+/****** Object:  Table [dbo].[Stats]    Script Date: 1/13/2024 2:02:12 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Stat](
+CREATE TABLE [dbo].[Stats](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[PlayerId] [int] NOT NULL,
 	[GameId] [int] NOT NULL,
+	[PlayerId] [int] NOT NULL,
 	[Points] [int] NOT NULL,
-	[ORebounds] [int] NOT NULL,
-	[DRebounds] [int] NOT NULL,
 	[Rebounds] [int] NOT NULL,
 	[Assists] [int] NOT NULL,
 	[Steals] [int] NOT NULL,
 	[Blocks] [int] NOT NULL,
-	[Minutes] [int] NOT NULL,
-	[Efficiency] [int] NULL,
- CONSTRAINT [PK_Stat] PRIMARY KEY CLUSTERED 
+	[Fouls] [int] NOT NULL,
+ CONSTRAINT [PK_Stats] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Stat]  WITH CHECK ADD  CONSTRAINT [FK_Stat_Game] FOREIGN KEY([GameId])
-REFERENCES [dbo].[Game] ([Id])
+ALTER TABLE [dbo].[Stats]  WITH CHECK ADD  CONSTRAINT [FK_Stats_Games] FOREIGN KEY([GameId])
+REFERENCES [dbo].[Games] ([Id])
 GO
 
-ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Game]
+ALTER TABLE [dbo].[Stats] CHECK CONSTRAINT [FK_Stats_Games]
 GO
 
-ALTER TABLE [dbo].[Stat]  WITH CHECK ADD  CONSTRAINT [FK_Stat_Information] FOREIGN KEY([PlayerId])
-REFERENCES [dbo].[Information] ([Id])
+ALTER TABLE [dbo].[Stats]  WITH CHECK ADD  CONSTRAINT [FK_Stats_Players] FOREIGN KEY([PlayerId])
+REFERENCES [dbo].[Players] ([Id])
 GO
 
-ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Information]
+ALTER TABLE [dbo].[Stats] CHECK CONSTRAINT [FK_Stats_Players]
 GO
 
-ALTER TABLE [dbo].[Stat]  WITH CHECK ADD  CONSTRAINT [FK_Stat_Stat] FOREIGN KEY([Id])
-REFERENCES [dbo].[Stat] ([Id])
-GO
 
-ALTER TABLE [dbo].[Stat] CHECK CONSTRAINT [FK_Stat_Stat]
-GO
 
