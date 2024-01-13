@@ -21,15 +21,11 @@ public class FanDevDBContext : DbContext
     }
 
     #region DbSets
+    public DbSet<Team> Teams { get; set; }
+    public DbSet<Game> Games { get; set; }
+    public DbSet<Stat> Stats { get; set; }
 
-    /// <summary>
-    /// may need to update below with correct names
-    /// </summary>
-    public DbSet<Team> Team { get; set; }
-    public DbSet<Game> Game { get; set; }
-    public DbSet<Stat> Stat { get; set; }
-
-    public DbSet<Player> Information { get; set; }
+    public DbSet<Player> Players { get; set; }
 
 
     #endregion
